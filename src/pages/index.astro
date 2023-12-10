@@ -1,0 +1,129 @@
+---
+import { SITE } from '@config';
+import Hero from '../components/Hero.astro';
+import Layout from '../layouts/MainLayout.astro';
+
+---
+<Layout title={SITE.title+" - "+SITE.intro.short} description={SITE.description.medium} titleTemplate="">
+    <Hero></Hero>
+    <div class="w-full max-w-7xl mx-auto p-4 py-16 md:py-24 space-y-10">
+        <div class="md:grid grid-cols-3 gap-8 ">
+            <div class="mb-8 text-center">
+                <i class="fa-solid fa-rocket text-8xl mb-4"></i>
+                <h2 class="h2 mb-4">Astro</h2>
+                <p class="mb-4">Astro a great web framework for content driven websites. Create the world's fastest website, client-side web apps, dynamic API endpoints with Astro.</p>
+                <a class="btn variant-soft-primary" href="https://astro.build/">Astro.build »</a>
+            </div>
+            <div class="mb-8 text-center">
+                <i class="fa-solid fa-skull text-8xl mb-4"></i>
+                <h2 class="h2 mb-4">Skeleton</h2>
+                <p class="mb-4">Skeleton is a fully featured UI Toolkit for building reactive interfaces quickly using Svelte and Tailwind.</p>
+                <a class="btn variant-soft-primary" href="https://skeleton.dev/">Skeleton.dev »</a>
+            </div>
+            <div class="mb-8 text-center">
+                <i class="fa-solid fa-crown text-8xl mb-4"></i>
+                <h2 class="h2 mb-4">Astroton</h2>
+                <p class="mb-4">Combine Astro + Svelte + Skeleton + Tailwind</p>
+            </div>
+        </div>
+        <section class="py-24">
+            <h2 class="h2">Feature List</h2>
+            <table class="table mt-12">
+                <thead>
+                    <th>Feature</th>
+                    <th>Status</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Astro 4.0
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            - Config (To quickly modify site settings.)
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            - Sitemap
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            - ViewTransitions
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           - Internationalization (i18n)
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-minus text-lg text-neutral-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        Svelte
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        - Skeleton
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        -- Basic Skeleton Theme
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        Tailwind
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            SEO
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-500"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Blog
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-circle-check text-lg text-success-400 opacity-50"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+	</div>
+</Layot>

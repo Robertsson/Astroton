@@ -1,0 +1,81 @@
+---
+interface Props {
+	title: string;
+}
+import '../assets/app.css';
+
+// Font Awesome
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+import '@fortawesome/fontawesome-free/css/brands.css';
+import '@fortawesome/fontawesome-free/css/solid.css';
+interface Props {
+	title: string;
+	description: string;
+	titleTemplate: string;
+}
+
+const { title,description,titleTemplate } = Astro.props;
+import { AppShell } from '@skeletonlabs/skeleton';
+import Header from '@components/shared/Header.astro';
+import Footer from '@components/shared/Footer.astro';
+import Drawer from '@components/shared/Drawer/Drawer.astro';
+import {ViewTransitions} from 'astro:transitions';
+import Nav from '@shared/Nav.astro';
+import { SEO } from "astro-seo";
+import { SITE } from '@config';
+---
+
+<!doctype html>
+<html lang={SITE.lang} class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+
+		<SEO
+			title={title}{description}
+			titleTemplate={titleTemplate}
+			description={description}
+			openGraph={{
+				basic: {
+				title: "A Very Descriptive Title",
+				type: "A type.",
+				image: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+				}
+			}}
+			twitter={{
+				creator: "@jonasmerlins1"
+			}}
+			extend={{
+				// extending the default link tags
+				link: [{ rel: "icon", href: "/favicon.ico" }],
+				// extending the default meta tags
+				meta: [
+				{
+					name: "twitter:image",
+					content: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+				},
+				{ name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+				{ name: "twitter:description", content: "Agent" },
+				],
+			}}
+    	/>
+		<ViewTransitions/>
+	</head>
+	<body data-theme="skeleton" class="bg-surface-100-800-token">
+		<Drawer position="right">
+			<Nav/>
+		</Drawer>
+        <AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">
+            <svelte:fragment slot="header">
+				<Header></Header>
+			</svelte:fragment>
+            	<slot />
+            <svelte:fragment slot="pageFooter">
+				<Footer></Footer>
+			</svelte:fragment>
+        </AppShell>
+	</body>
+</html>

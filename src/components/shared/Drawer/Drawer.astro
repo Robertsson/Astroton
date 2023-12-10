@@ -1,0 +1,78 @@
+---
+export interface Props {
+    position?: string;
+    classContent?: string;
+}
+const {position = "right", classContent = "w-[280px] md:w-[480px] p-4"} = Astro.props;
+
+const getDrawerStyles = (position: string) => {
+    let backdropClass, positionClass;
+
+    switch (position) {
+        case 'left':
+            backdropClass = 'justify-start';
+            positionClass = 'w-[90%] h-full rounded-tr-container-token rounded-br-container-token';
+            break;
+        case 'top':
+            backdropClass = 'items-start';
+            positionClass = 'w-full h-[50%] rounded-bl-container-token rounded-br-container-token';
+            break;
+        case 'bottom':
+            backdropClass = 'items-end';
+            positionClass = 'w-full h-[50%] rounded-tl-container-token rounded-tr-container-token';
+            break;
+        default:
+            backdropClass = 'justify-end';
+            positionClass = 'w-[90%] h-full rounded-tl-container-token rounded-bl-container-token';
+            break;
+    }
+
+    return { backdropClass, positionClass };
+};
+const drawer = getDrawerStyles(position);
+let drawerVisbility= "closedDrawer";
+
+---
+<script>
+    document.addEventListener('click', (event) => {
+    const drawer = document.getElementById('drawer');
+    if (event.target === drawer) {
+        drawer?.classList.replace('openDrawer', 'closedDrawer');
+    }
+    });
+</script>
+
+<div id="drawer" class=`drawer-backdrop fixed top-0 left-0 right-0 bottom-0 flex bg-surface-backdrop-token z-40 transition-all ${drawer.backdropClass} ${drawerVisbility}` transition:persist>
+    <div id="drawerContent" class=`drawer overflow-y-auto transition-transform bg-surface-100-800-token shadow-xl ${drawer.positionClass} ${classContent}`>
+        <slot/>
+    </div>
+</div>
+
+<style>
+    #drawer{
+        transition: opacity .15s ease-in-out;
+    }
+    #drawer.closedDrawer{
+        visibility: hidden;
+        opacity:0; 
+    }
+    #drawer.openDrawer{
+        visibility: visible;
+        opacity:1;
+    }
+    #drawer #drawerContent{
+        transition: all .25s ease-in-out;
+    }
+    #drawer.closedDrawer #drawerContent{
+        opacity:0; 
+    }
+    #drawer.closedDrawer #drawerContent.h-full{
+        width: 0;
+    }
+    #drawer.closedDrawer #drawerContent.w-full{
+        height: 0;
+    }
+    #drawer.openDrawer #drawerContent{
+        opacity:1;
+    }
+</style>
