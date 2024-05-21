@@ -17,11 +17,12 @@
     "@astrojs/tailwind": "^5.0.3",
     "@floating-ui/dom": "1.5.3",
     "@fortawesome/fontawesome-free": "^6.5.1",
-    "astro": "^4.0.2",
+    "astro": "^4.0.6",
     "astro-seo": "^0.8.0",
     "svelte": "^4.2.3",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.2",
+    "vanilla-cookieconsent": "^3.0.0-rc.17"
   },
   "devDependencies": {
     "@skeletonlabs/skeleton": "^2.5.1",
