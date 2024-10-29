@@ -1,14 +1,15 @@
 ---
 import Logo from "../../components/shared/Logo.astro";
-import { AppBar } from "@skeletonlabs/skeleton";
+import { AppBar } from '@skeletonlabs/skeleton-svelte';
 import { SITE } from "@config";
 import DrawerButton from "@components/shared/Drawer/DrawerButton.astro"
 import Nav from "@shared/Nav.astro"
+import { Github } from "lucide-svelte";
 ---
-
+  
+ 
 <AppBar shadow="shadow-2xl" slotTrail="!space-x-2" slotLead="space-x-4" transition:persist>
     <slot slot="lead">
-		
 			<a href="/" rel="prefetch" class="lg:!ml-0 w-[38px] lg:w-auto overflow-hidden" title="Go to Homepage">
                 <Logo />
 			</a>
@@ -20,8 +21,8 @@ import Nav from "@shared/Nav.astro"
 			<Nav/>   
 		</section>     
 		<section class="hidden sm:inline-flex space-x-1">
-			<a class="btn-icon hover:variant-soft-primary" href=`${SITE.githubUrl}` target="_blank" rel="noreferrer">
-				<i class="fa-brands fa-github text-lg" />
+			<a class="btn-icon hover:variant-soft-primary" href={`${SITE.socialMedia.find((platform) => platform.platform === "GitHub")?.link ?? "#"}`} target="_blank" rel="noreferrer">
+				<Github>
 			</a>
 		</section>
 		<DrawerButton>

@@ -4,10 +4,7 @@ interface Props {
 }
 import '../assets/app.css';
 
-// Font Awesome
-import '@fortawesome/fontawesome-free/css/fontawesome.css';
-import '@fortawesome/fontawesome-free/css/brands.css';
-import '@fortawesome/fontawesome-free/css/solid.css';
+
 interface Props {
 	title: string;
 	description: string;
@@ -15,18 +12,18 @@ interface Props {
 }
 
 const { title,description,titleTemplate } = Astro.props;
-import { AppShell } from '@skeletonlabs/skeleton';
+
 import Header from '@components/shared/Header.astro';
 import Footer from '@components/shared/Footer.astro';
 import Drawer from '@components/shared/Drawer/Drawer.astro';
-import {ViewTransitions} from 'astro:transitions';
+import {ClientRouter} from 'astro:transitions';
 import Nav from '@shared/Nav.astro';
 import { SEO } from "astro-seo";
 import { SITE } from '@config';
 ---
 
 <!doctype html>
-<html lang={SITE.lang} class="dark">
+<html lang={SITE.language} class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -45,9 +42,6 @@ import { SITE } from '@config';
 				image: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
 				}
 			}}
-			twitter={{
-				creator: "@jonasmerlins1"
-			}}
 			extend={{
 				// extending the default link tags
 				link: [{ rel: "icon", href: "/favicon.ico" }],
@@ -63,20 +57,20 @@ import { SITE } from '@config';
 			}}
     	/>
 		<script src="https://cdn.counter.dev/script.js" data-id="616de6e1-dccf-4e4a-a149-706f4c3c0b76" data-utcoffset="2"></script>
-		<ViewTransitions/>
+		<ClientRouter/>
 	</head>
-	<body data-theme="skeleton" class="bg-surface-100-800-token">
+	<body data-theme="skeleton" class="bg-surface-100-800-token h-screen grid grid-rows-[auto_1fr_auto]">
 		<Drawer position="right">
 			<Nav/>
 		</Drawer>
-        <AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">
-            <svelte:fragment slot="header">
-				<Header></Header>
-			</svelte:fragment>
-            	<slot />
-            <svelte:fragment slot="pageFooter">
-				<Footer></Footer>
-			</svelte:fragment>
-        </AppShell>
+        <header>
+			<Header></Header>
+		</header>
+		<main>
+			<slot />
+		</main>	
+		<footer>
+			<Footer></Footer>
+		</footer>
 	</body>
 </html>

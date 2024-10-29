@@ -1,3 +1,7 @@
+```
+Won't work until Astro supports @render from Svelte 5. PR for the changes required sent to Astro.
+```
+
 # Astroton: Minimal Astro + Skeleton Starter
 
 **Astroton** combines Astro + Tailwind + Skeleton UI. Quickstart your new Astro site with Skeleton UI. Astroton is theme with the basic settings for Astro + Skeleton already setup for you.
@@ -16,14 +20,16 @@ Repository was created as a starting point for my own projects that in normal ca
 Contribution is welcome, feel free to open an issue and fork. Waiting for your pull request.
 
 ## What's added so far
-* Astro 4.0
+* Astro 5.0
   * Sitemap **Add-on**
-  * ViewTransitions
+  * ~~ViewTransitions~~ ClientRouter
   * Astro SEO
-* Svelte 4.x
-  * **Skeleton** (UI Framework for Svelte)
+* Svelte 5.x
+  * **Skeleton** (UI Framework for Svelte) 3.X
 * Tailwind
 * Simple Blog
+* Lucide icons
+
 
 ## Astro
 

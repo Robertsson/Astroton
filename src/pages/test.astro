@@ -1,22 +1,14 @@
 ---
 import Layout from '../layouts/PageLayout.astro';
-import { Ratings } from '@skeletonlabs/skeleton';
-import { Table } from '@skeletonlabs/skeleton';
-import type { TableSource } from '@skeletonlabs/skeleton';
+import { Rating } from '@skeletonlabs/skeleton-svelte';
+let starValue = $state(2);
 ---
 
 <Layout title="Test">
    <h1 class="h1 inline-block" transition:name="title">Test page</h1>
    <p transition:name="intro">Test page for some of the Skeleton components</p>
-   <Ratings value={3.5} max={5}>
-    <svelte:fragment slot="empty">
-        
-    </svelte:fragment>
-    <svelte:fragment slot="half">
-        <i class="fa-solid fa-star-half" />
-    </svelte:fragment>
-    <svelte:fragment slot="full">
-        <i class="fa-solid fa-star" />
-    </svelte:fragment>
-    </Ratings>
+   <Rating value={3.5} max={5}/>
+
+    
+
 </Layout>
